@@ -12,7 +12,6 @@ namespace ObligatoriskOpgave2.Models
     public partial class ObOPGDBContext : DbContext
     {
         string connectionstring = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ObOPGDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
         private int GetMaxFac(SqlConnection connection)
         {
             #region Get Max Facilitets id
@@ -32,7 +31,6 @@ namespace ObligatoriskOpgave2.Models
             #endregion
         }
         private List<Facilitet> ReadAllFaciliteter(SqlConnection connection)
-
         {
             #region List alle Faciliteter
             Console.WriteLine("Reading all faciliteter");
@@ -57,7 +55,6 @@ namespace ObligatoriskOpgave2.Models
             Console.WriteLine();
             return facilitets;
             #endregion
-
         }
         private Facilitet GetFacilitet(SqlConnection connection, int Id)
         {
@@ -184,7 +181,7 @@ namespace ObligatoriskOpgave2.Models
 
             OnModelCreatingPartial(modelBuilder);
         }
-
+        
         internal void Start()
         {
             using (SqlConnection connection = new SqlConnection(connectionstring))
@@ -215,7 +212,6 @@ namespace ObligatoriskOpgave2.Models
                 DeleteFacilitet(connection, facilitetToBeDeleted.Id);
                 ReadAllFaciliteter(connection);
             }
-
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
